@@ -135,9 +135,18 @@ This prototype is intentionally minimal. The full implementation for GSoC 2026 e
 
 ## Community Background
 
-Before working on this, I contributed to the Processing4 repository by adding unit tests for core library functions. My PR was reviewed by a core collaborator who confirmed all tests passed and the PR was pending merge. That experience gave me direct familiarity with the Processing Foundation's code review process, contribution standards, and codebase structure — which informed the technical depth of this prototype.
+Before building this prototype, I contributed to the Processing4 repository
+by adding unit tests for PGraphics.setSize() (PR #1462, resolving issue #1488).
 
----
+After initial review feedback — rename the class, move it to the correct package,
+merge the test methods, remove unrelated drawing calls — I addressed every comment
+and resubmitted. The collaborator responded "Amazing, thank you! It looks good.
+I'll merge after running build." The PR is pending final merge.
+
+That experience gave me direct familiarity with the Processing Foundation's
+contribution process, code review standards, and Java testing infrastructure —
+and motivated me to explore p5.js more deeply, which is how I discovered the
+MTL texture gap this prototype addresses.
 
 ## References
 
@@ -145,7 +154,8 @@ Before working on this, I contributed to the Processing4 repository by adding un
 - [MTL File Format Specification](http://paulbourke.net/dataformats/mtl/)
 - [GSoC 2026 Processing Foundation Project Ideas](https://github.com/processing/p5.js/wiki/GSoC-2026)
 - [p5.js WEBGL Discussion: Full MTL Support](https://github.com/processing/p5.js/issues) 
-
+- [Processing4 PR #1462 — PGraphics unit tests](https://github.com/processing/processing4/pull/1462)
+- [Processing4 Issue #1488](https://github.com/processing/processing4/issues/1488)
 ---
 
 *This prototype is part of my GSoC 2026 proposal submission to the Processing Foundation.*
