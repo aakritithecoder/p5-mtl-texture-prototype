@@ -1,0 +1,52 @@
+# cube.obj — Test asset for MTL texture prototype
+# A simple cube with 2 material zones:
+#   Material 1 (mat_textured): uses map_Kd — should show texture
+#   Material 2 (mat_solid):    uses only Kd — should show solid colour
+# This tests both the texture path and the graceful fallback path.
+
+mtllib cube.mtl
+
+v -1.0 -1.0  1.0
+v  1.0 -1.0  1.0
+v  1.0  1.0  1.0
+v -1.0  1.0  1.0
+v -1.0 -1.0 -1.0
+v  1.0 -1.0 -1.0
+v  1.0  1.0 -1.0
+v -1.0  1.0 -1.0
+
+vt 0.0 0.0
+vt 1.0 0.0
+vt 1.0 1.0
+vt 0.0 1.0
+
+vn  0  0  1
+vn  0  0 -1
+vn  0  1  0
+vn  0 -1  0
+vn  1  0  0
+vn -1  0  0
+
+# Front face — uses textured material (map_Kd)
+usemtl mat_textured
+f 1/1/1 2/2/1 3/3/1 4/4/1
+
+# Back face — uses solid colour material (Kd only, no texture)
+usemtl mat_solid
+f 6/1/2 5/2/2 8/3/2 7/4/2
+
+# Top face — textured
+usemtl mat_textured
+f 4/1/3 3/2/3 7/3/3 8/4/3
+
+# Bottom face — solid
+usemtl mat_solid
+f 5/1/4 6/2/4 2/3/4 1/4/4
+
+# Right face — textured
+usemtl mat_textured
+f 2/1/5 6/2/5 7/3/5 3/4/5
+
+# Left face — solid
+usemtl mat_solid
+f 5/1/6 1/2/6 4/3/6 8/4/6

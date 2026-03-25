@@ -1,0 +1,32 @@
+# cube.mtl — Test material file for MTL texture prototype
+#
+# This .mtl file intentionally uses multiple material types to test:
+#   1. map_Kd with a texture image (the NEW functionality this prototype adds)
+#   2. Kd-only solid colour (the EXISTING p5.js behaviour — used as fallback)
+#   3. Specular + shininess properties (parsed but rendered via p5 shininess())
+#
+# Current p5.js behaviour: ignores map_Kd entirely, renders everything as solid colour.
+# This prototype's behaviour: loads texture.png and applies it to mat_textured faces.
+
+# ─── Material 1: Textured ────────────────────────────────────────────────────
+# This is what p5.js currently can't handle. It has a map_Kd texture.
+newmtl mat_textured
+Ka 0.1 0.1 0.1
+Kd 0.9 0.9 0.9
+Ks 0.3 0.3 0.3
+Ns 25.0
+d 1.0
+illum 2
+# ↓ THIS LINE IS IGNORED BY CURRENT p5.js — our prototype fixes that
+map_Kd textures/texture.png
+
+# ─── Material 2: Solid colour ────────────────────────────────────────────────
+# This uses only Kd — current p5.js handles this correctly already.
+# Our prototype uses this as the graceful fallback when map_Kd is missing.
+newmtl mat_solid
+Ka 0.05 0.05 0.15
+Kd 0.2 0.5 0.9
+Ks 0.4 0.4 0.4
+Ns 50.0
+d 1.0
+illum 2
