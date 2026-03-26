@@ -27,6 +27,15 @@ map_Kd textures/wood.png ← p5.js IGNORES this ✗
 
 When a user exports a model from Blender with textures, all the surface detail is silently discarded. The fix requires changes in three places in the p5.js codebase.
 
+## Before / After
+
+| Before (current p5.js) | After (this prototype) |
+|------------------------|------------------------|
+| ![before](before.png) | ![after](after.png) |
+
+**Before:** p5.js ignores `map_Kd` entirely — the model renders using vertex normals as colours, no texture applied.  
+**After:** MTL parsing pipeline active — texture loaded, material definitions populated, confirmed in console logs.
+
 ---
 
 ## What This Prototype Implements
