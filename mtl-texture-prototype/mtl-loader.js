@@ -303,10 +303,10 @@ function loadMTLWithTextures(mtlPath) {
  * @param {p5.Geometry} model     - The loaded geometry (from loadModel)
  * @param {Object}      matData   - Container with .materials array from loadMTLWithTextures
  */
-function drawModelWithMaterials(model, matData) {
+function drawModelWithMaterials(geo, matData) {
   if (!matData || !matData.materials || matData.materials.length === 0) {
     // No MTL data — fall back to default p5.js rendering
-    model(model);
+    model(geo);
     return;
   }
 
@@ -339,7 +339,7 @@ function drawModelWithMaterials(model, matData) {
     // NOTE: In the prototype we draw the full model per material pass.
     // The real implementation draws ONLY the face range for this material
     // using drawElements(gl.TRIANGLES, count, gl.UNSIGNED_SHORT, byteOffset).
-    model(model);
+    model(geo);
 
     pop();
   }
